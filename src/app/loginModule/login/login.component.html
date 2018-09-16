@@ -1,0 +1,6 @@
+<article class="login-page">
+	<button *ngIf="!authenticationService.isAuthenticated()" 
+	(click)="authenticationService.login()">Login</button>
+	<button *ngIf="authenticationService.isAuthenticated()" 
+	(click)="authenticationService.logout()">Logout</button>
+</article>

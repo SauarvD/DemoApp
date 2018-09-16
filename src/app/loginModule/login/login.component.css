@@ -1,0 +1,9 @@
+.login-page{
+	background-image: url('../../../assets/cinemagraphs/Cinemagrafia-07152450759127.gif');
+	height: 100vh;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
