@@ -5,12 +5,12 @@ import { Routes,
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/login',
+        redirectTo: '/home',
         pathMatch: 'full'
     },
     {
-        path: 'home',
-        redirectTo: '/home',
+        path: 'dashboard',
+        redirectTo: '/dashboard',
         pathMatch: 'full'
     }
 ];

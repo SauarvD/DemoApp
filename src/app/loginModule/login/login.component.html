@@ -1,6 +1,9 @@
 <article class="login-page">
-	<button *ngIf="!authenticationService.isAuthenticated()" 
-	(click)="authenticationService.login()">Login</button>
-	<button *ngIf="authenticationService.isAuthenticated()" 
-	(click)="authenticationService.logout()">Logout</button>
+	<section class="header-text-container animate-first">
+		SCHEDULER
+	</section>
+	<section class="login-button-container animate-second">
+		<button class="login-button loginValue" *ngIf="!authenticationService.isAuthenticated()" 
+		(click)="authenticationService.login()">Login</button>
+	</section>
 </article>

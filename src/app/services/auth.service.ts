@@ -36,10 +36,6 @@ export class AuthService {
       this.auth0.client.userInfo(accessToken, function(err, profile) {
         if (profile) {
           self.userProfile = profile;
-          console.log(profile);
-          // localStorage.setItem('picture', profile.picture);
-          // localStorage.setItem('name', profile.name);
-          // localStorage.setItem('nickname', profile.nickname);
         }
         cb(err, profile);
       });
@@ -53,9 +49,9 @@ export class AuthService {
       if (authResult && authResult.accessToken && authResult.idToken) {
         window.location.hash = '';
         this.setSession(authResult);
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
       } else if (err) {
-        this.router.navigate(['/home']);
+        this.router.navigate(['/dashboard']);
         console.log(err);
       }
     });

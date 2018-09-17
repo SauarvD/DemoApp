@@ -7,3 +7,86 @@
     overflow-y: auto;
     overflow-x: hidden;
 }
+
+.header-text-container{
+	position: absolute;
+	width: 100%;
+	left: 0;
+	right: 0;
+	top: 15%;
+	text-align: center;
+	font-family: ex2-thin;
+	font-size: 140px;
+	color: #fff;
+	opacity: 0;
+    animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+
+.login-button-container{
+	position: absolute;
+	right: 5em;
+	bottom: 30%;
+	opacity: 0;
+	animation: buttonReveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+
+.login-button{
+	border: 3px solid #fff;
+    color: #fff;
+    background: none;
+    cursor: pointer;
+    padding: 25px 70px;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    font-size: 16px;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.login-button:after{
+	content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: 50%;
+    transition: all 0.3s;
+    background-image: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.2));
+}
+
+.animate-first {
+	animation-delay: 500ms;
+}
+
+.animate-second {
+	animation-delay: 1000ms;
+}
+
+@keyframes reveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 0.5;
+    transform: translateY(0);
+  }
+
+}
+
+@keyframes buttonReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+}

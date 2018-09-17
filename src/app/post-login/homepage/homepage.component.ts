@@ -12,6 +12,7 @@ export class HomepageComponent implements OnInit {
   }
 
   public profile: any;
+  public foodItems: any = [];
 
   ngOnInit() {
   	if (this.auth.userProfile) {
@@ -21,6 +22,25 @@ export class HomepageComponent implements OnInit {
         this.profile = profile;
       });
     }
+
+    this.foodItems = [
+      {
+        name:"Pani Puri",
+        image:"/assets/images/pani-puri.png"
+      },
+      {
+        name:"Chaat",
+        image:"/assets/images/chaat.png"
+      },
+      {
+        name:"Chole Bhature",
+        image:"/assets/images/chole-bhature.png"
+      },
+      {
+        name:"Momo",
+        image:"/assets/images/momo.png"
+      }
+    ]
   }
 
 }
