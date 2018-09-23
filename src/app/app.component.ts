@@ -9,8 +9,6 @@ import {AuthService} from './services/auth.service';
 export class AppComponent {
 
 	constructor(private authenticationService: AuthService) { 
-  		authenticationService.handleAuthentication();
-  		// authenticationService.getProfile();
-  }
+  	}
   title = 'dreamApp';
 }

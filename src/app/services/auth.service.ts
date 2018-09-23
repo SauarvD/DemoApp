@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import {Observable} from 'rxjs/Observable';
 import * as auth0 from 'auth0-js';
 
 (window as any).global = window;
@@ -20,49 +21,10 @@ export class AuthService {
   constructor(public router: Router) {}
 
   public userProfile;
+  public loggedIn : boolean = false;
 
   public login(): void {
     this.auth0.authorize();
-  }
-
-  public getProfile(cb) {
-    if (!this.userProfile) {
-      var accessToken = localStorage.getItem('access_token');
-
-      if (!accessToken) {
-        console.log('Access Token must exist to fetch profile');
-      }
-      const self = this;
-      this.auth0.client.userInfo(accessToken, function(err, profile) {
-        if (profile) {
-          self.userProfile = profile;
-        }
-        cb(err, profile);
-      });
-    } else {
-      console.log(this.userProfile);
-    }
-  }
-
-  public handleAuthentication(): void {
-    this.auth0.parseHash((err, authResult) => {
-      if (authResult && authResult.accessToken && authResult.idToken) {
-        window.location.hash = '';
-        this.setSession(authResult);
-        this.router.navigate(['/dashboard']);
-      } else if (err) {
-        this.router.navigate(['/dashboard']);
-        console.log(err);
-      }
-    });
-  }
-
-  private setSession(authResult): void {
-    // Set the time that the Access Token will expire at
-    const expiresAt = JSON.stringify((authResult.expiresIn * 1000) + new Date().getTime());
-    localStorage.setItem('access_token', authResult.accessToken);
-    localStorage.setItem('id_token', authResult.idToken);
-    localStorage.setItem('expires_at', expiresAt);
   }
 
   public logout(): void {
@@ -74,11 +36,9 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  public isAuthenticated(): boolean {
-    // Check whether the current time is past the
-    // Access Token's expiry time
-    const expiresAt = JSON.parse(localStorage.getItem('expires_at') || '{}');
-    return new Date().getTime() < expiresAt;
+  public isAuthenticated(){
+    const token = localStorage.getItem('ID');
+    return Boolean(token)
   }
 
 }

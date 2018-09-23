@@ -1,0 +1,11 @@
+<section class="foodItem-container">
+	<div (click)="goback()">Back</div>
+	<article class="foodList-container flex flex-align-center">
+		<div class="foodList-wrapper" *ngFor="let item of items">
+			<div class="foodWrapper">
+				<img src={{item.image}} alt="" class="foodContent" />
+			</div>
+			<!-- <h1 class="foodName">{{item.name}}</h1> -->
+		</div>
+	</article>
+</section>

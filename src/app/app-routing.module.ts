@@ -10,7 +10,7 @@ const routes: Routes = [
     },
     {
         path: 'dashboard',
-        redirectTo: '/dashboard',
+        redirectTo: '/dashboard/list',
         pathMatch: 'full'
     }
 ];

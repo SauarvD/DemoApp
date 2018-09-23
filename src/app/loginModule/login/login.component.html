@@ -1,9 +1,12 @@
+<script src="https://apis.google.com/js/platform.js" async defer></script>
 <article class="login-page">
-	<section class="header-text-container animate-first">
-		SCHEDULER
-	</section>
-	<section class="login-button-container animate-second">
-		<button class="login-button loginValue" *ngIf="!authenticationService.isAuthenticated()" 
-		(click)="authenticationService.login()">Login</button>
+	<div class="login-overlay">
+	</div>
+	<section class="header-text-container">
+		<div class="header-text-name animate-first">SCHEDULER</div>
+		<div class="login-button-content ilb animate-second">
+			<div *ngIf="!loader" class="g-signin2" data-onsuccess="onSignIn" (click)="loginLoader()"></div>
+			<div *ngIf="loader">Loading</div>
+		</div>
 	</section>
 </article>

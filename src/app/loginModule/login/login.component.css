@@ -1,6 +1,8 @@
 .login-page{
-	background-image: url('../../../assets/cinemagraphs/Cinemagrafia-07152450759127.gif');
-	height: 100vh;
+	background-image: url('../../../assets/images/typewriter-801921_1920.jpg');
+	height: 100%;
+    width: 100%;
+    position: relative;
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -8,34 +10,41 @@
     overflow-x: hidden;
 }
 
+.login-overlay{
+    background-image: linear-gradient(#333,#000);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+}
+
 .header-text-container{
 	position: absolute;
-	width: 100%;
-	left: 0;
-	right: 0;
-	top: 15%;
-	text-align: center;
-	font-family: ex2-thin;
-	font-size: 140px;
+	width: 60%;
+	left: 8em;
+	top: 35%;
+	text-align: left;
+	font-family: ex2-medium;
 	color: #fff;
-	opacity: 0;
+}
+
+.header-text-name{
+    font-size: 120px;
+    margin-bottom: 0.5em;
+    opacity: 0;
     animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
 }
 
-.login-button-container{
-	position: absolute;
-	right: 5em;
-	bottom: 30%;
+.login-button-content{
 	opacity: 0;
 	animation: buttonReveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
 }
 
 .login-button{
-	border: 3px solid #fff;
     color: #fff;
     background: none;
     cursor: pointer;
-    padding: 25px 70px;
+    padding: 15px 45px;
     display: inline-block;
     text-transform: uppercase;
     letter-spacing: 3px;
@@ -48,7 +57,15 @@
     transition: all 0.3s;
 }
 
-.login-button:after{
+.abcRioButtonLightBlue{
+    background: none;
+}
+
+.abcRioButtonContentWrapper{
+    position: relative;
+}
+
+.abcRioButtonContentWrapper:after{
 	content: '';
     position: absolute;
     top: 2px;
@@ -73,7 +90,7 @@
     transform: translateY(100%);
   }
   100% {
-    opacity: 0.5;
+    opacity: 0.8;
     transform: translateY(0);
   }
 
@@ -82,11 +99,27 @@
 @keyframes buttonReveal {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateX(-100%);
   }
   100% {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
+}
+
+/* Mobile First Responsiveness */
+
+@media (max-width: 767px){
+    .header-text-container{
+        width: 100%;
+        left:0;
+        top: 15%;
+        text-align: center;
+    }
+
+    .header-text-name{
+        font-size: 45px;
+        letter-spacing: 5px;
+    }
 }

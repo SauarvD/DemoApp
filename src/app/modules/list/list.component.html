@@ -1,0 +1,9 @@
+<article class="list-container">
+	<header class="header flex flex-center">What you would like to do?</header>
+	<div class="feature-blocks flex flex-align-center flex-around">
+		<div class="feature-tab" *ngFor="let route of linkToRoute" (click)="navigateTo(route.url)">
+			<div class="block-text">{{route.linkName}}</div>
+			<div class="gradient-overlay"></div>
+		</div>
+	</div>
+</article>
