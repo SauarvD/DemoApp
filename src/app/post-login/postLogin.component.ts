@@ -20,16 +20,6 @@ export class postLoginComponent implements OnInit {
   ngOnInit() {
     this.profile['image'] = localStorage.getItem('Image');
     this.profile['name'] = localStorage.getItem('Name');
-    this.linkToRoute = [
-      {
-        linkName:'FoodPoll',
-        url:'foodPoll'
-      },
-      {
-        linkName:'Search People',
-        url:'searchPeople'
-      }
-    ]
   }
 
   signout(){
@@ -44,14 +34,6 @@ export class postLoginComponent implements OnInit {
           self.router.navigate(['/home']);
         });
     });
-  }
-
-  navigateTo(){
-    this.router.navigate(['/dashboard/foodPoll'])
-  }
-
-  navigateTois(){
-    this.router.navigate(['/dashboard/searchPeople'])
   }
 
 }

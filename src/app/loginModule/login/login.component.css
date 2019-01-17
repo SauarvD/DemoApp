@@ -1,5 +1,6 @@
 .login-page{
-	background-image: url('../../../assets/images/typewriter-801921_1920.jpg');
+    /* background-image: url('../../../assets/images/typewriter-801921_1920.jpg'); */
+    background-image: linear-gradient(#1c2128,#231f1f,#333);
 	height: 100%;
     width: 100%;
     position: relative;
@@ -8,6 +9,7 @@
     background-position: center;
     overflow-y: auto;
     overflow-x: hidden;
+    font-family: ex2-medium;
 }
 
 .login-overlay{
@@ -19,25 +21,54 @@
 }
 
 .header-text-container{
-	position: absolute;
-	width: 60%;
-	left: 8em;
-	top: 35%;
-	text-align: left;
+	/* position: absolute; */
+    width: 100%;
+    height: 100%;
+	/* left: 8em;
+	top: 35%; */
+	text-align: center;
 	font-family: ex2-medium;
-	color: #fff;
+    color: #fff;
+    font-family: 'Raleway', sans-serif;
 }
 
 .header-text-name{
-    font-size: 120px;
-    margin-bottom: 0.5em;
+    /* font-size: 120px; */
+    font-size: 80px;
+    margin-bottom: 0.3em;
     opacity: 0;
+    letter-spacing: 1px;
     animation: reveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
 }
 
+.header-subtext{
+    font-size: 20px;
+    opacity: 0;
+    letter-spacing: 2px;
+    animation-duration: 5s;
+    animation-fill-mode: both;
+    animation-name: fadeIn;
+}
+
 .login-button-content{
-	opacity: 0;
+    opacity: 0;
+    position: relative;
 	animation: buttonReveal 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+
+.sign-in-button{
+    position: absolute;
+    width: 100%;
+    left: 0;
+    z-index: 1;
+    height: 100%;
+    border-radius: 5px;
+    background: #333;
+    color: #fff;
+    background-image: linear-gradient(#231f1f,#333);
+    cursor: pointer;
+    letter-spacing: 2px;
+    pointer-events: none;
 }
 
 .login-button{
@@ -81,13 +112,13 @@
 }
 
 .animate-second {
-	animation-delay: 1000ms;
+	animation-delay: 900ms;
 }
 
 @keyframes reveal {
   0% {
     opacity: 0;
-    transform: translateY(100%);
+    transform: translateY(200%);
   }
   100% {
     opacity: 0.8;
@@ -99,7 +130,7 @@
 @keyframes buttonReveal {
   0% {
     opacity: 0;
-    transform: translateX(-100%);
+    transform: translateY(200%);
   }
   100% {
     opacity: 1;
@@ -107,6 +138,16 @@
   }
 
 }
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
+ 
+ @keyframes fadeIn {
+    0% {opacity: 0;}
+    100% {opacity: 1;}
+ }
 
 /* Mobile First Responsiveness */
 
@@ -121,5 +162,15 @@
     .header-text-name{
         font-size: 45px;
         letter-spacing: 5px;
+    }
+}
+
+@media (min-width: 2500px){
+    .header-text-container{
+        width: 50%;
+        height: 50%;
+        left: 50%;
+        position: absolute;
+        transform: translate(-50%,50%);
     }
 }

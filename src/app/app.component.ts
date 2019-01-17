@@ -10,5 +10,5 @@ export class AppComponent {
 
 	constructor(private authenticationService: AuthService) { 
   	}
-  title = 'dreamApp';
+  title = 'Finder';
 }

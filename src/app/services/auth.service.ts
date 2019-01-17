@@ -4,8 +4,6 @@ import { filter } from 'rxjs/operators';
 import {Observable} from 'rxjs/Observable';
 import * as auth0 from 'auth0-js';
 
-(window as any).global = window;
-
 @Injectable()
 export class AuthService {
 

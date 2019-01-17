@@ -1,12 +1,16 @@
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 <article class="login-page">
-	<div class="login-overlay">
-	</div>
-	<section class="header-text-container">
-		<div class="header-text-name animate-first">SCHEDULER</div>
+	<!-- <div class="login-overlay">
+	</div> -->
+	<section class="header-text-container flex flex-col flex-around flex-align-center">
+		<div class="header-text-content flex flex-col flex-align-center flex-around">
+				<div class="header-text-name animate-first">MusicMood</div>
+				<div class="header-subtext">Your personalized music assistant</div>
+		</div>
 		<div class="login-button-content ilb animate-second">
+			<button *ngIf="!loader" class="sign-in-button">Enter</button>
 			<div *ngIf="!loader" class="g-signin2" data-onsuccess="onSignIn" (click)="loginLoader()"></div>
-			<div *ngIf="loader">Loading</div>
+			<div *ngIf="loader">Getting your data</div>
 		</div>
 	</section>
 </article>
