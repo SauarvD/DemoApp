@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {JwtModule} from '@auth0/angular-jwt';
 import {AuthService} from '../services/auth.service';
+import {LocationService} from '../services/location.service';
+import { FormsModule } from '@angular/forms';
 
 import {postLoginComponent} from './postLogin.component';
 import { foodPollComponent } from '../modules/foodPoll/foodPoll.component';
@@ -12,7 +14,7 @@ import {AuthGuard} from '../services/authGuard.service';
 
 @NgModule({
   imports: [
-    CommonModule, postLoginModuleRoutingModule
+    CommonModule, postLoginModuleRoutingModule, FormsModule
   ],
   declarations: [
     postLoginComponent,
@@ -20,6 +22,6 @@ import {AuthGuard} from '../services/authGuard.service';
     SearchPeopleComponent,
     ListComponent
   ],
-  providers: [JwtModule, AuthService, AuthGuard]
+  providers: [JwtModule, AuthService, AuthGuard, LocationService]
 })
 export class PostLoginModule { }

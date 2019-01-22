@@ -1,6 +1,6 @@
 .login-page{
     /* background-image: url('../../../assets/images/typewriter-801921_1920.jpg'); */
-    background-image: linear-gradient(#1c2128,#231f1f,#333);
+    background-image: linear-gradient(135deg, #1c2128,#231f1f,#696565);
 	height: 100%;
     width: 100%;
     position: relative;
@@ -107,12 +107,42 @@
     background-image: linear-gradient(rgba(255,255,255,0.8),rgba(255,255,255,0.2));
 }
 
+.move-first {
+    opacity: 1;
+    animation-delay: 300s;
+    animation: goBy 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+
+.move-second {
+    opacity: 1;
+    animation-duration: 1s;
+    animation-fill-mode: both;
+    animation-name: fadeOut;
+}
+
+.move-third {
+    opacity: 1;
+    animation-delay: 900s;
+    animation: goBy 1s cubic-bezier(0, 1, 0.5, 1) 1 normal forwards;
+}
+
 .animate-first {
 	animation-delay: 500ms;
 }
 
 .animate-second {
 	animation-delay: 900ms;
+}
+
+@keyframes goBy {
+    0% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-200%);
+    }
 }
 
 @keyframes reveal {
@@ -147,6 +177,11 @@
  @keyframes fadeIn {
     0% {opacity: 0;}
     100% {opacity: 1;}
+ }
+
+ @keyframes fadeOut {
+     0% {opacity: 1;}
+     100% {opacity: 0;}
  }
 
 /* Mobile First Responsiveness */

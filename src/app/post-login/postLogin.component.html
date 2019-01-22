@@ -1,20 +1,83 @@
 <article class="homepage">
-	<section class="homepage-content">
-		<div class="details">
+	<header class="page-title">MusicMood</header>
+	<section class="homepage-content flex-col" *ngIf="contentLoaded">
+		<div class="details flex flex-between flex-align-center">
+			<div class="profile-place animate1">
+				<div class="suburb-name">{{locationData?.suburb}},</div>
+				<div class="place-name">{{locationData?.city}}</div>
+			</div>
 			<div class="profile-details animate0">
 				<div class="profile-photo-container">
+					<img *ngIf="!play" src="../../assets/images/play-btn.png" alt="" class="profile-play" (click)="playMusic()">
+					<img *ngIf="play" src="../../assets/images/pause-btn.png" alt="" class="profile-play pause" (click)="pauseMusic()">
 					<img src={{profile?.image}} alt="" class="profile-photo">
 				</div>
 				<div class="name-container">Hey, {{profile?.name}}</div>
 			</div>
+			<div class="profile-place weather-value animate1">
+				<div class="place-weather"><span>{{weatherData?.temp}} </span>&#x2103;</div>
+			</div>
 		</div>
-		<div class="logout" (click)="signout()">
-			Sign Off
+		<div class="description">In this {{weatherData?.icon}} around the suburb of {{locationData?.suburb}}, you might want to {{weatherData?.genre}}</div>
+	</section>
+	<section class="page-loader" *ngIf='!contentLoaded'>
+		<div class="line line{{i+1}}" *ngFor='let tempData of loaderData; index as i'>
+			<span class="circle circle-top"></span>
+			<div class="dotted">
+				<span class="dot dot-top"></span>
+				<span class="dot dot-middle-top"></span>
+				<span class="dot dot-middle-bottom"></span>
+				<span class="dot dot-bottom"></span>
+			</div>
+			<span class="circle circle-bottom"></span>
 		</div>
 	</section>
-	<section class="features-container flex">
+	<!-- <section class="features-container flex" *ngIf="contentLoaded">
 		<div class="features-container-content">
 			<router-outlet></router-outlet>
 		</div>
+	</section> -->
+	<section class="tracks-list" *ngIf='contentLoaded'>
+		<div class="tracks-description flex flex-around">
+			<p>{{listData[0].description}}</p>
+			<button class="arrange-list" (click)="reArrange()">{{listData[0].value}}</button>
+		</div>
+		<article class="tracks-container flex flex-between">
+			<div class="trackList" *ngFor='let data of listData[0].data' (click)="playTrack(data.name,data.artistName)">
+				<div class="trackImage">
+					<div class="track-image">
+						<img src={{data.image}} alt="" class="track-image-data">
+					</div>
+					<div class="track-info">
+						<div class="track-data">{{data.name}}</div>
+						<div class="track-data" *ngIf='data.artistName'>{{data.artistName}}</div>
+					</div>
+				</div>
+			</div>
+		</article>
 	</section>
+	<section class="search-container flex flex-around flex-align-center">
+		<input type="text" placeholder="Search for a song" [(ngModel)]='songName' autocomplete="off" class="search-input"/>
+		<button class="search-btn" (click)="searchSong()">Search</button>
+	</section>
+	<section class="searchList flex flex-between flex-align-center" *ngIf='searchListData.length>0'>
+		<div class="trackList" *ngFor='let data of searchListData' (click)='playSong(data.videoId)'>
+			<div class="trackImage">
+				<div class="track-image">
+					<img src={{data.image}} alt="" class="track-image-data">
+				</div>
+				<div class="track-info">
+					<div class="track-data">{{data.title}}</div>
+					<div class="track-data" *ngIf='data.description'>{{data.description}}</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	<section class="video-player">
+			<iframe id="ytplayer" type="text/html" width="640" height="360"
+			frameborder="0" allow='autoplay' rel=0></iframe>
+	</section>
+	<div class="logout" (click)="signout()">
+		Sign Off
+	</div>
 </article>

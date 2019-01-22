@@ -4,10 +4,10 @@
 	</div> -->
 	<section class="header-text-container flex flex-col flex-around flex-align-center">
 		<div class="header-text-content flex flex-col flex-align-center flex-around">
-				<div class="header-text-name animate-first">MusicMood</div>
-				<div class="header-subtext">Your personalized music assistant</div>
+				<div class="header-text-name animate-first" [ngClass]="{'move-first': loaded}">MusicMood</div>
+				<div class="header-subtext" [ngClass]="{'move-second': loaded}">Your personalized music assistant</div>
 		</div>
-		<div class="login-button-content ilb animate-second">
+		<div class="login-button-content ilb animate-second" [ngClass]="{'move-third': loaded}">
 			<button *ngIf="!loader" class="sign-in-button">Enter</button>
 			<div *ngIf="!loader" class="g-signin2" data-onsuccess="onSignIn" (click)="loginLoader()"></div>
 			<div *ngIf="loader">Getting your data</div>

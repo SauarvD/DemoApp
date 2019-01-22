@@ -7,6 +7,7 @@ import { foodPollComponent } from '../modules/foodPoll/foodPoll.component';
 import { SearchPeopleComponent } from '../modules/search-people/search-people.component';
 import { ListComponent } from '../modules/list/list.component';
 import {AuthGuard} from '../services/authGuard.service';
+import {LocationService} from '../services/location.service';
 
 const routes: Routes = [
     {

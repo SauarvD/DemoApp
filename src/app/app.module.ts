@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
 import {RouterModule, Routes, RouterLink, RouterLinkActive} from '@angular/router';
 import { AppComponent } from './app.component';
 
@@ -19,6 +20,7 @@ import {AuthGuard} from './services/authGuard.service';
     BrowserModule,
     FormsModule,
     HttpModule,
+    HttpClientModule,
     RouterModule,
     AppRoutingModule,
     LoginModule,
